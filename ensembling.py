@@ -114,10 +114,6 @@ lr_params = {
 }
 
 
-
-# In[4]:
-
-
 #  Initiliase classifier objects
 rf = SklearnHelper(clf=RandomForestClassifier, seed=SEED, params=rf_params)
 et = SklearnHelper(clf=ExtraTreesClassifier, seed=SEED, params=et_params)
@@ -138,9 +134,6 @@ svc_train_df, svc_test_df = get_oof(svc, X_train, y_train, X_test) # Support Vec
 lr_train_df, lr_test_df = get_oof(lr, X_train, y_train, X_test) # Logistic regressor
 
 print("Training is complete")
-
-
-# In[10]:
 
 
 x_train = pd.concat([et_train_df, rf_train_df, ada_train_df, gb_train_df, svc_train_df, lr_train_df], axis=1)
